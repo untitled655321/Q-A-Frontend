@@ -8,6 +8,7 @@ import { CoreGuards } from './guards';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './views/auth/auth.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SharedModule,
     AuthModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     CoreGuards
