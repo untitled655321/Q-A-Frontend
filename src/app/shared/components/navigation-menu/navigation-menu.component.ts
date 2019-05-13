@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AppRouterUrls } from '../../../app-routing.config';
+import {IsAuthenticatedGuard} from '../../../guards';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-navigation-menu',
@@ -10,5 +12,5 @@ export class NavigationMenuComponent {
 
   appRouterUrls = AppRouterUrls;
 
-  constructor() {}
+  constructor(private auth: IsAuthenticatedGuard, private authService: AuthService) {}
 }

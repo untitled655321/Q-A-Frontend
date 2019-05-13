@@ -1,4 +1,4 @@
-import { AuthService } from './auth.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 export const AuthServices = [
   AuthService

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {AlertService} from '../../../../shared/services/alert.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -21,7 +20,7 @@ export class AuthLoginComponent implements OnInit{
   constructor( private formBuilder: FormBuilder, private authentitactionService: AuthService,
                private router: Router,  private route: ActivatedRoute) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -29,8 +28,7 @@ export class AuthLoginComponent implements OnInit{
     // reset login status
     this.authentitactionService.logout();
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
   }
 
   get f() { return this.loginForm.controls; }
@@ -46,10 +44,11 @@ export class AuthLoginComponent implements OnInit{
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate(['/dashboard']);
           console.log(data);
         },
         error => {
+
           this.loading = false;
         });
 

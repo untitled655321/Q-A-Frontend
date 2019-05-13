@@ -9,12 +9,23 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './views/auth/auth.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { WelcomeComponent } from './views/welcome/welcome.component';
+import {AlertComponent} from './shared/_directives';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
+    WelcomeComponent,
+    AlertComponent
+
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
@@ -22,7 +33,10 @@ import {HttpClientModule} from '@angular/common/http';
     AuthModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
+
   ],
   providers: [
     CoreGuards
