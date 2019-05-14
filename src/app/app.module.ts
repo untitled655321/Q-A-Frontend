@@ -11,10 +11,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import {AlertComponent} from './shared/_directives';
+import {AgmCoreModule} from '@agm/core';
+import {WelcomeModule} from './views/welcome/welcome.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,17 @@ import {AlertComponent} from './shared/_directives';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule,
+    MatCardModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB7skUvUJAduHHP4TjV0c8x_VkWewR7wMU '
+      /* apiKey is required, unless you are a
+      premium customer, in which case you can
+      use clientId
+      */
+    }),
+    WelcomeModule
 
   ],
   providers: [
