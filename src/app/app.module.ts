@@ -17,6 +17,7 @@ import { WelcomeComponent } from './views/welcome/welcome.component';
 import {AlertComponent} from './shared/_directives';
 import {AgmCoreModule} from '@agm/core';
 import {WelcomeModule} from './views/welcome/welcome.module';
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {WelcomeModule} from './views/welcome/welcome.module';
       use clientId
       */
     }),
-    WelcomeModule
+    WelcomeModule,
+    LeafletModule.forRoot()
 
   ],
   providers: [

@@ -1,13 +1,23 @@
+
+<div fxLayout="column" fxLayoutGap="32px">
 <mat-grid-list cols="1" rowHeight="100px" >
   <mat-grid-tile>1 <app-cities></app-cities></mat-grid-tile>
   <mat-grid-tile>
    2<app-topics></app-topics>
   </mat-grid-tile>
 </mat-grid-list>
+</div>
+<div
+  fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start"  style="height: 100%; width: 100%;">
 
-<mat-grid-list cols="2"  >
-  <mat-grid-tile>1<app-questions></app-questions></mat-grid-tile>
-  <mat-grid-tile>
-    <div id="mapid"></div>
-  </mat-grid-tile>
-</mat-grid-list>
+  <app-questions fxFlex="0 1 calc(50% - 32px)"></app-questions>
+
+  <div fxFlex="0 1 calc(50%)" style="height: 100%; width: 100%;"
+        leaflet
+        [leafletOptions]="options"
+        [leafletLayersControl]="layersControl">
+  </div>
+</div>
+
+
+
