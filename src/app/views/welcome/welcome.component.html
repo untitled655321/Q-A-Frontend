@@ -9,13 +9,12 @@
 </div>
 <div
   fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start"  style="height: 100%; width: 100%;">
-
+  <button (click)="sendCoordinants()">click</button>
   <app-questions fxFlex="0 1 calc(50% - 32px)"></app-questions>
 
-  <div fxFlex="0 1 calc(50%)" style="height: 100%; width: 100%;"
-        leaflet
-        [leafletOptions]="options"
-        [leafletLayersControl]="layersControl">
+
+  <div id="map" fxFlex="0 1 calc(50%)" style="height: 100%; width: 100%;">
+
   </div>
 </div>
 

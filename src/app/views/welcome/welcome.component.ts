@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {circle, latLng, polygon, tileLayer} from 'leaflet';
+import {LeafletDirective, LeafletDirectiveWrapper} from '@asymmetrik/ngx-leaflet';
+import {Subscription} from 'rxjs';
+import {first} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Coordinate} from '../../shared/model/coordinate';
+import {CoordinatesService} from './service';
+
 declare let L;
+
 
 @Component({
   selector: 'app-welcome',
@@ -8,34 +16,47 @@ declare let L;
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-  latitude = -28.68352;
-  longitude = -147.20785;
-  mapType = 'satellite';
-  options = {
-    layers: [
-      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
-    ],
-    zoom: 5,
-    center: latLng(46.879966, -121.726909)
-  };
 
-  layersControl = {
-    baseLayers: {
-      'Open Street Map': tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
-      'Open Cycle Map': tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
-    },
-    overlays: {
-      'Big Circle': circle([ 46.95, -122 ], { radius: 5000 }),
-      'Big Square': polygon([[ 46.8, -121.55 ], [ 46.9, -121.55 ], [ 46.9, -121.7 ], [ 46.8, -121.7 ]])
-    }
+  apiUrl = 'http://localhost:3000';
+  @ViewChild("map")
+  public mapElement: ElementRef;
+
+  private map:any;
+  constructor(private coordinatesService: CoordinatesService) {
   }
-
-  constructor() { }
 
   ngOnInit() {
+    this.map = L.map('map').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(this.map);
+  }
+
+  public ngAfterViewInit() {
+
+      // this.map.on('moveend' || 'zoomend', function(e) {
+      //
+      //   console.log(this.map.getCenter());
+      //
+      // });
 
 
 
   }
 
+
+sendCoordinants() {
+
+  this.coordinatesService.sendCoordinate(this.map.getCenter())
+    .pipe(first())
+    .subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+}
 }
