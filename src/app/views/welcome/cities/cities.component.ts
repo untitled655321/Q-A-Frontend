@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {WelcomeComponent} from '../welcome.component';
+import {MatMenuTrigger} from '@angular/material';
 
 @Component({
   selector: 'app-cities',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CitiesComponent implements OnInit {
 
-  constructor() { }
+  @Input() childCities;
+
+  constructor(private welcomeComponent: WelcomeComponent) { }
 
   ngOnInit() {
   }
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
+  someMethod() {
+    this.trigger.openMenu();
+  }
+  showCity(lat: number, lng: number) {
+    this.welcomeComponent.showCity(lat, lng);
+  }
 }

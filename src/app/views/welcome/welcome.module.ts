@@ -7,6 +7,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {AuthServices} from '../auth/services';
 import {CoordinateService} from './service';
+import {MatCardModule, MatMenuModule} from '@angular/material';
 
 @NgModule({
   declarations: [CitiesComponent, TopicsComponent, QuestionsComponent],
@@ -20,7 +21,8 @@ import {CoordinateService} from './service';
     CommonModule,
     FlexLayoutModule,
     LeafletModule,
-
+    MatMenuModule,
+    MatCardModule,
 
 
   ],
