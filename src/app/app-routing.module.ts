@@ -6,6 +6,7 @@ import {DashboardComponent} from './views/dashboard/dashboard.component';
 import {IsAuthenticatedOnLoginGuard} from './guards';
 import {AuthRegisterComponent} from './views/auth/components/auth-register/auth-register.component';
 import {WelcomeComponent} from './views/welcome/welcome.component';
+import {PageNotFoundComponentComponent} from './shared/components/page-not-found-component/page-not-found-component.component';
 
 const routes: Routes = [
   // odkomentować gdy dodasz komponent offers
@@ -16,7 +17,8 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: AppRouterUrls.LOGIN },
       { path: AppRoutes.LOGIN, component: AuthLoginComponent },
-      { path: AppRoutes.REGISTER, component: AuthRegisterComponent }
+      { path: AppRoutes.REGISTER, component: AuthRegisterComponent },
+      {path: '**', component: PageNotFoundComponentComponent}
     ],
   },
   { path: AppRoutes.DASHBOARD, component: DashboardComponent, canActivate: [IsAuthenticatedOnLoginGuard]}
