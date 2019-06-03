@@ -7,10 +7,7 @@
         <span class="label">Login</span>
 
       </a>
-      <a mat-list-item>
-        <mat-icon class="icon">home</mat-icon>
-        <span class="label">Home</span>
-      </a>
+
       <a mat-list-item>
         <mat-icon class="icon">dashboard</mat-icon>
         <span class="label">Dashboard</span>
@@ -29,8 +26,8 @@
         </button>
       </div>
       <div>
-        <a>
-          Ask Place
+        <a [routerLink]="appRouterUrls.HOME">
+          World Board
         </a>
       </div>
       <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
@@ -41,12 +38,7 @@
               <span  class="label">Login</span>
             </a>
           </li>
-          <li>
-            <a [routerLink]="appRouterUrls.HOME">
-              <mat-icon class="icon">home</mat-icon>
-              <span class="label">Home</span>
-            </a>
-          </li>
+
           <li>
             <a [routerLink]="appRouterUrls.DASHBOARD">
               <mat-icon class="icon">dashboard</mat-icon>

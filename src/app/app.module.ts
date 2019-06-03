@@ -11,13 +11,22 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule, MatMenuModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
 import {AlertComponent} from './shared/_directives';
 import {AgmCoreModule} from '@agm/core';
 import {WelcomeModule} from './views/welcome/welcome.module';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import {ScrollDispatchModule, ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -41,6 +50,10 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
     FlexLayoutModule,
     MatGridListModule,
     MatCardModule,
+MatButtonModule,
+    MatMenuModule,
+ScrollingModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB7skUvUJAduHHP4TjV0c8x_VkWewR7wMU '
       /* apiKey is required, unless you are a

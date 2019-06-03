@@ -1,11 +1,11 @@
-<button (click)="showCity(childCities[number].lat,childCities[number].lng)" *ngFor="let number of [0,1,2,3,4,5,6]" >
+<button mat-raised-button (click)="showCity(childCities[number].lat,childCities[number].lng)" *ngFor="let number of [0,1,2,3,4,5,6]" >
 
 {{childCities[number].city}}
 </button>
 
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<button  mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
-  <button (click)="showCity(city.lat,city.lng)" *ngFor="let city of childCities" >
+  <button mat-raised-button (click)="showCity(city.lat,city.lng)" *ngFor="let city of childCities" >
 
     {{city.city}}
   </button>

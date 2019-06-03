@@ -7,7 +7,8 @@ import { QuestionsComponent } from './questions/questions.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {AuthServices} from '../auth/services';
 import {CoordinateService} from './service';
-import {MatCardModule, MatMenuModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatMenuModule} from '@angular/material';
+import {ScrollDispatcher, ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [CitiesComponent, TopicsComponent, QuestionsComponent],
@@ -23,6 +24,11 @@ import {MatCardModule, MatMenuModule} from '@angular/material';
     LeafletModule,
     MatMenuModule,
     MatCardModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    ScrollingModule
+
 
 
   ],
